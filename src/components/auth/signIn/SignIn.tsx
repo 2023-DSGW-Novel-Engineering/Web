@@ -3,6 +3,9 @@ import * as S from "../../../styles/auth/AuthInfo.style";
 import InputField from "../../common/auth/signininput/InputField";
 import SubminBtn from "../../common/auth/button/SubminBtn";
 import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { UserNameValue } from "../../../store/atom";
+import { Api } from "../../../util/Api";
 
 type IUserInfoGeneric<T extends string> = {
   [t in T]: string;
@@ -14,6 +17,7 @@ interface ISiginInProps {
 }
 
 const SignIn = (props: ISiginInProps) => {
+  const setName = useSetRecoilState(UserNameValue);
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState<IUserType>({ id: "", password: "" });
 
@@ -25,7 +29,19 @@ const SignIn = (props: ISiginInProps) => {
   };
 
   const ServerSignIn = () => {
-    navigate(`/userinfo/${userInfo.id}`);
+    Api.post("/auth/login", {
+      user_id: userInfo.id,
+      password: userInfo.password,
+    })
+      .then((e) => {
+        alert("로그인 되었습니다!");
+        console.log(e);
+        navigate(`/userinfo/${userInfo.id}`);
+        setName(userInfo.id);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
   return (
     <>

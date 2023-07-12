@@ -2,8 +2,8 @@ import React, { useState, Dispatch, SetStateAction } from "react";
 import * as S from "../../../styles/auth/AuthInfo.style";
 import InputField from "../../common/auth/signupinput/InputField";
 import SubminBtn from "../../common/auth/button/SubminBtn";
-import { useNavigate } from "react-router-dom";
 import SelectLanguage from "./selectLanguage/SelectLanguage";
+import { Api } from "../../../util/Api";
 
 type IUserInfoGeneric<T extends string> = {
   [t in T]: string;
@@ -17,7 +17,6 @@ interface ISiginInProps {
 }
 
 const SignIn = (props: ISiginInProps) => {
-  const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState<IUserType>({
     id: "",
     password: "",
@@ -38,8 +37,20 @@ const SignIn = (props: ISiginInProps) => {
     setUserInfo({ ...userInfo, language: newValue });
   };
   const ServerSignUp = () => {
-    props.setIsSignUp(false);
-    navigate("/auth");
+    console.log("ddd");
+    Api.post("/auth/register", {
+      name: userInfo.name,
+      user_id: userInfo.id,
+      password: userInfo.password,
+      native_language: userInfo.language,
+    })
+      .then((e) => {
+        console.log(e);
+        props.setIsSignUp(false);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (
