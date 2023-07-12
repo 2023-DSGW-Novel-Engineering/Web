@@ -4,11 +4,9 @@ import Icon1 from "../../../asset/Icon1.svg";
 import Icon2 from "../../../asset/Icon2.svg";
 import Icon3 from "../../../asset/Icon3.svg";
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue } from "recoil";
-import { UserNameValue } from "../../../store/atom";
 
 const Sidebar = () => {
-  const userName = useRecoilValue(UserNameValue);
+  const userName = localStorage.getItem("userId");
   const navigate = useNavigate();
   return (
     <S.MainSidebarContainer>
