@@ -14,6 +14,8 @@ interface ISiginInProps {
 
 const SignIn = (props: ISiginInProps) => {
   const [userInfo, setUserInfo] = useState<IUserType>({ id: "", password: "" });
+
+  const ServerSignIn = () => {};
   return (
     <>
       <S.Title>로그인{"(SignIn)"}</S.Title>
@@ -31,7 +33,7 @@ const SignIn = (props: ISiginInProps) => {
         value={userInfo.password}
         setState={setUserInfo}
       />
-      <SubminBtn context="로그인" />
+      <SubminBtn context="로그인" onClcikFunc={ServerSignIn} />
       <S.AccountCheck onClick={() => props.setIsSignUp(true)}>
         계정이 없으신가요?
       </S.AccountCheck>

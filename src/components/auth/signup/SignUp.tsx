@@ -2,6 +2,7 @@ import React, { useState, Dispatch, SetStateAction } from "react";
 import * as S from "../../../styles/auth/AuthInfo.style";
 import InputField from "../../common/auth/input/InputField";
 import SubminBtn from "../../common/auth/button/SubminBtn";
+import { useNavigate } from "react-router-dom";
 
 type IUserInfoGeneric<T extends string> = {
   [t in T]: string;
@@ -13,7 +14,11 @@ interface ISiginInProps {
 }
 
 const SignIn = (props: ISiginInProps) => {
+  const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState<IUserType>({ id: "", password: "" });
+  const ServerSignUp = () => {
+    navigate("/");
+  };
   return (
     <>
       <S.Title>회원가입{"(SignUp)"}</S.Title>
@@ -45,7 +50,7 @@ const SignIn = (props: ISiginInProps) => {
         value={userInfo.id}
         setState={setUserInfo}
       />
-      <SubminBtn context="회원가입" />
+      <SubminBtn context="회원가입" onClcikFunc={ServerSignUp} />
       <S.AccountCheck onClick={() => props.setIsSignUp(false)}>
         계정이 있으신가요?
       </S.AccountCheck>
