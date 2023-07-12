@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from "./SideContentsbar.style";
 import ContentsBox from "./contents/ContentsBox";
+import AddFriend from "./contents/AddFriend";
 
 interface ISideContentS {
   title: string;
@@ -16,6 +17,7 @@ const SideContentsBar = (props: ISideContentS) => {
       </S.Title>
       <S.SidebarContainer>
         <S.SidebarContentsContainer>
+          <AddFriend />
           {props.contents?.map((e, i) => (
             <ContentsBox context={e} url={props.url} key={i} />
           ))}
