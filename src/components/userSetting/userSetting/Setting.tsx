@@ -1,24 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./Setting.style";
-import { useParams } from "react-router-dom";
+import ConnectPapago from "../../../util/ConnectPapago";
 
 const Setting = () => {
-  const { username } = useParams();
+  const [basicId, setBasicId] = useState<string>("아이디");
+  const [basicLanguage, setBasicLanguage] = useState<string>("모국어");
+
+  useEffect(() => {
+    ConnectPapago(setBasicId, basicId);
+    ConnectPapago(setBasicLanguage, basicLanguage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <S.MainContainer>
       <S.SubContainer>
         <S.UserContentsWrap>
           <S.UserInfoWrap>
             <S.UserProfile></S.UserProfile>
-            <S.UserInfoName>{username}</S.UserInfoName>
+            <S.UserInfoName>{localStorage.getItem("Name")}</S.UserInfoName>
           </S.UserInfoWrap>
           <S.UserTextWrap>
-            <S.UserInfoTitle>아이디</S.UserInfoTitle>
-            <S.UserInfoContext>dfd</S.UserInfoContext>
+            <S.UserInfoTitle>{basicId}</S.UserInfoTitle>
+            <S.UserInfoContext>
+              {localStorage.getItem("User_id")}
+            </S.UserInfoContext>
           </S.UserTextWrap>
           <S.UserTextWrap>
-            <S.UserInfoTitle>모국어</S.UserInfoTitle>
-            <S.UserInfoContext>dfdf</S.UserInfoContext>
+            <S.UserInfoTitle>{basicLanguage}</S.UserInfoTitle>
+            <S.UserInfoContext>
+              {localStorage.getItem("Native_language")}
+            </S.UserInfoContext>
           </S.UserTextWrap>
         </S.UserContentsWrap>
       </S.SubContainer>

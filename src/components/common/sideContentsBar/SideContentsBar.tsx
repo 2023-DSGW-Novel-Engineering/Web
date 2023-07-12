@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./SideContentsbar.style";
 import ContentsBox from "./contents/ContentsBox";
 import AddFriend from "./contents/AddFriend";
+import ConnectPapago from "../../../util/ConnectPapago";
 
 interface ISideContentS {
   title: string;
@@ -10,11 +11,16 @@ interface ISideContentS {
 }
 
 const SideContentsBar = (props: ISideContentS) => {
+  const [titleValue, setTitleValue] = useState<string>("");
+  useEffect(() => {
+    ConnectPapago(setTitleValue, props.title);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div>
       <S.Title>
         <S.TitleContext>
-          {props.title}
+          {titleValue}
           {props.title === "친구" && <AddFriend />}
         </S.TitleContext>
       </S.Title>

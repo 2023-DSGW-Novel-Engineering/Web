@@ -28,6 +28,7 @@ export const ChatContents = styled.div`
   height: 77%;
   padding: 2%;
   background-color: #bbbaff;
+  overflow: auto;
 `;
 
 export const Input = styled.input`
@@ -37,4 +38,21 @@ export const Input = styled.input`
   padding: 3% 2%;
   border: none;
   border-top: 1px solid #d7d7d7;
+`;
+
+export const ChatContext = styled.span`
+  padding: 0.5rem;
+  background-color: white;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+`;
+interface IisMine {
+  isMine: boolean;
+}
+export const ChatContextWrap = styled.div`
+  padding: 0.5rem;
+  margin: 1rem;
+  display: ${(props: IisMine) => (props.isMine ? "flex" : "block")};
+  justify-content: ${(props: IisMine) => props.isMine && "flex-end"};
 `;
