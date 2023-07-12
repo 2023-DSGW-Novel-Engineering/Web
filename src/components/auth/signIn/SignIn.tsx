@@ -17,8 +17,15 @@ const SignIn = (props: ISiginInProps) => {
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState<IUserType>({ id: "", password: "" });
 
+  const OnChangeId = (newValue: string) => {
+    setUserInfo({ ...userInfo, id: newValue });
+  };
+  const OnChangePassword = (newValue: string) => {
+    setUserInfo({ ...userInfo, password: newValue });
+  };
+
   const ServerSignIn = () => {
-    navigate("/");
+    navigate(`/userinfo/${userInfo.id}/`);
   };
   return (
     <>
@@ -28,14 +35,14 @@ const SignIn = (props: ISiginInProps) => {
         type="text"
         placeholder="아이디를 입력해주세요."
         value={userInfo.id}
-        setState={setUserInfo}
+        setState={OnChangeId}
       />
       <InputField
         title="비밀번호(Password)"
         type="password"
         placeholder="비밀번호를 입력해주세요."
         value={userInfo.password}
-        setState={setUserInfo}
+        setState={OnChangePassword}
       />
       <SubminBtn context="로그인" onClcikFunc={ServerSignIn} />
       <S.AccountCheck onClick={() => props.setIsSignUp(true)}>
