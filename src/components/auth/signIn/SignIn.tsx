@@ -38,6 +38,8 @@ const SignIn = (props: ISiginInProps) => {
         console.log(e);
         navigate(`/userinfo/${userInfo.id}`);
         setName(userInfo.id);
+        localStorage.setItem("Token", e.data.token);
+        localStorage.setItem("userId", userInfo.id);
       })
       .catch((e) => {
         console.log(e);
@@ -61,9 +63,11 @@ const SignIn = (props: ISiginInProps) => {
         setState={OnChangePassword}
       />
       <SubminBtn context="로그인" onClcikFunc={ServerSignIn} />
-      <S.AccountCheck onClick={() => props.setIsSignUp(true)}>
-        계정이 없으신가요?
-      </S.AccountCheck>
+      <div>
+        <S.AccountCheck onClick={() => props.setIsSignUp(true)}>
+          계정이 없으신가요?
+        </S.AccountCheck>
+      </div>
     </>
   );
 };
