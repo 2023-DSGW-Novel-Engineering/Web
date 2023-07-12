@@ -15,6 +15,16 @@ export const MainContainer = styled.div`
   }
 `;
 
+interface IIconProps {
+  url: string;
+}
+export const AddIcon = styled.div`
+  background-image: url(${(props: IIconProps) => props.url});
+  background-size: cover;
+  width: 1.5rem;
+  height: 1.5rem;
+`;
+
 export const EntrieComponents = styled.div`
   position: fixed;
   width: 100%;

@@ -11,6 +11,9 @@ export const Title = styled.div`
 
 export const TitleContext = styled.p`
   margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const SidebarContainer = styled.div`

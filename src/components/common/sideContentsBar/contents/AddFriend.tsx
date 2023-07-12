@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./AddFriend.style";
 import ConnectPapago from "../../../../util/ConnectPapago";
+import AddIcon from "../../../../asset/Add.svg";
 
 const AddFriend = () => {
   const [addFriend, setAddFriend] = useState<boolean>(false);
@@ -25,9 +26,7 @@ const AddFriend = () => {
           ></S.BackgroundComponents>
         </S.EntrieComponents>
       )}
-      <S.MainContainer onClick={() => setAddFriend(true)}>
-        친구 추가
-      </S.MainContainer>
+      <S.AddIcon url={AddIcon} onClick={() => setAddFriend(true)} />
     </>
   );
 };

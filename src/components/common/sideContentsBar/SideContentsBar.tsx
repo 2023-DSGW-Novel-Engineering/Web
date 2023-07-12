@@ -13,11 +13,13 @@ const SideContentsBar = (props: ISideContentS) => {
   return (
     <div>
       <S.Title>
-        <S.TitleContext>{props.title}</S.TitleContext>
+        <S.TitleContext>
+          {props.title}
+          {props.title === "친구" && <AddFriend />}
+        </S.TitleContext>
       </S.Title>
       <S.SidebarContainer>
         <S.SidebarContentsContainer>
-          <AddFriend />
           {props.contents?.map((e, i) => (
             <ContentsBox context={e} url={props.url} key={i} />
           ))}
