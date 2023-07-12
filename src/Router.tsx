@@ -14,10 +14,12 @@ const Router = () => {
       <Routes>
         {/* {SignInCheck ? ( */}
         <>
+          <Route path="/userinfo/:username" element={<UserInfo />} />
           <Route
             path="/userinfo/:username/:friendname"
             element={<UserInfo />}
           />
+          <Route path="/userroom/:username/" element={<UserRoom />} />
           <Route path="/userroom/:username/:roomidx" element={<UserRoom />} />
           <Route path="/usersetting/:username" element={<UserSetting />} />
         </>
