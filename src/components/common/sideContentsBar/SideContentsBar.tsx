@@ -1,12 +1,25 @@
 import React from "react";
 import * as S from "./SideContentsbar.style";
+import ContentsBox from "./contents/ContentsBox";
 
-const SideContentsBar = () => {
+interface ISideContentS {
+  title: string;
+  contents?: string[];
+  url: string;
+}
+
+const SideContentsBar = (props: ISideContentS) => {
   return (
     <div>
-      <S.Title>dd</S.Title>
+      <S.Title>
+        <S.TitleContext>{props.title}</S.TitleContext>
+      </S.Title>
       <S.SidebarContainer>
-        <div>SideContentsBar</div>
+        <S.SidebarContentsContainer>
+          {props.contents?.map((e, i) => (
+            <ContentsBox context={e} url={props.url} key={i} />
+          ))}
+        </S.SidebarContentsContainer>
       </S.SidebarContainer>
     </div>
   );
