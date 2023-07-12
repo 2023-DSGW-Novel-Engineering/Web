@@ -13,7 +13,7 @@ export const SubContainer = styled.div`
   width: 60%;
   height: 70%;
   display: flex;
-  box-shadow: 0rem 1rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
 `;
 
 export const Slogan = styled.nav`
