@@ -14,7 +14,7 @@ const SelectLanguage = (props: ISelectProps) => {
           <option value="korean">한국어</option>
           <option value="english">English</option>
           <option value="japanese">日本語</option>
-          <option value="spanish">Espagnol</option>
+          <option value="espagnol">Espagnol</option>
           <option value="italian">Italia</option>
         </S.Select>
       </S.SelectWrap>
