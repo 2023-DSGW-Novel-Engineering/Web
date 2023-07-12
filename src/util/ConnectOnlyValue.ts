@@ -1,13 +1,11 @@
 import axios from "axios";
 import { Dispatch, SetStateAction } from "react";
-const url = "http://localhost:8080/translate/ko";
+const url = "http://localhost:8080/translate";
 
-const ConnectPapago = async (
-  setState: Dispatch<SetStateAction<string>>,
-  context: string
+const ConnectGoValue = async (
+  context: string,
+  setState: Dispatch<SetStateAction<string>>
 ) => {
-  console.log("dfdf", localStorage.getItem("Native_language"));
-
   await axios
     .post(url, {
       text: context,
@@ -19,4 +17,4 @@ const ConnectPapago = async (
     .catch((_) => {});
 };
 
-export default ConnectPapago;
+export default ConnectGoValue;
