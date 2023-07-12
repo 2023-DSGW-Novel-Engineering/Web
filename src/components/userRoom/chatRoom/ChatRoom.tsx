@@ -1,5 +1,7 @@
-import React, { KeyboardEvent, useEffect, useState } from "react";
-import io from "socket.io-client";
+import React, { KeyboardEvent, useState } from "react";
+// import io from "socket.io-client";
+import * as S from "./ChatRoom.style";
+import { useParams } from "react-router-dom";
 
 const ChatRoom = () => {
   const [newChat, setNewChat] = useState<string>("");
@@ -12,25 +14,31 @@ const ChatRoom = () => {
   //     socket.disconnect();
   //   };
   // }, []);
-  const sendMessage = (message: string) => {
-    // socket.emit("chatMessage", message);
-  };
+  // const sendMessage = (message: string) => {
+  // socket.emit("chatMessage", message);
+  // };
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      sendMessage(newChat);
+      // sendMessage(newChat);
     }
   };
+  const { roomidx } = useParams();
   return (
-    <div>
-      <div></div>
-      <input
-        type="text"
-        placeholder="메세지를 입력해주세요."
-        value={newChat}
-        onChange={(e) => setNewChat(e.target.value)}
-        onKeyDown={handleKeyPress}
-      />
-    </div>
+    <S.MainContainer>
+      <S.SubContainer>
+        <S.ChatHeader>
+          <p>{roomidx}</p>
+        </S.ChatHeader>
+        <S.ChatContents></S.ChatContents>
+        <S.Input
+          type="text"
+          placeholder="메세지를 입력해주세요."
+          value={newChat}
+          onChange={(e) => setNewChat(e.target.value)}
+          onKeyDown={handleKeyPress}
+        />
+      </S.SubContainer>
+    </S.MainContainer>
   );
 };
 
