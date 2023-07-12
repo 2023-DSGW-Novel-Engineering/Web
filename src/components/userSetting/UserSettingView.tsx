@@ -3,14 +3,14 @@ import Sidebar from "../common/sidebar/ Sidebar";
 import * as S from "../../styles/UserInfoView.style";
 import SideContentsBar from "../common/sideContentsBar/SideContentsBar";
 
-const UserInfoView = () => {
+const UserSettingView = () => {
   return (
     <S.MainContainer>
       <Sidebar />
       <SideContentsBar />
-      <div>UserInfoView</div>
+      <div>UserSettingView</div>
     </S.MainContainer>
   );
 };
 
-export default UserInfoView;
+export default UserSettingView;
