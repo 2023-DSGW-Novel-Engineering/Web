@@ -1,11 +1,8 @@
 import React from "react";
+import UserSettingView from "../components/userSetting/UserSettingView";
 
 const UserSetting = () => {
-  return (
-    <>
-      <div>UserSetting</div>
-    </>
-  );
+  return <UserSettingView />;
 };
 
 export default UserSetting;

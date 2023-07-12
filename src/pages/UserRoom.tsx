@@ -1,11 +1,8 @@
 import React from "react";
+import UserRoomView from "../components/userRoom/UserRoomView";
 
 const UserRoom = () => {
-  return (
-    <>
-      <div>UserRoom</div>
-    </>
-  );
+  return <UserRoomView />;
 };
 
 export default UserRoom;
