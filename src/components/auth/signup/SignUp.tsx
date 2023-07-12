@@ -1,13 +1,15 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 import * as S from "../../../styles/auth/AuthInfo.style";
-import InputField from "../../common/auth/input/InputField";
+import InputField from "../../common/auth/signupinput/InputField";
 import SubminBtn from "../../common/auth/button/SubminBtn";
 import { useNavigate } from "react-router-dom";
 
 type IUserInfoGeneric<T extends string> = {
   [t in T]: string;
 };
-export type IUserType = IUserInfoGeneric<"id" | "password">;
+export type IUserType = IUserInfoGeneric<
+  "id" | "password" | "name" | "language"
+>;
 
 interface ISiginInProps {
   setIsSignUp: Dispatch<SetStateAction<boolean>>;
@@ -15,7 +17,12 @@ interface ISiginInProps {
 
 const SignIn = (props: ISiginInProps) => {
   const navigate = useNavigate();
-  const [userInfo, setUserInfo] = useState<IUserType>({ id: "", password: "" });
+  const [userInfo, setUserInfo] = useState<IUserType>({
+    id: "",
+    password: "",
+    name: "",
+    language: "",
+  });
   const ServerSignUp = () => {
     navigate("/");
   };
