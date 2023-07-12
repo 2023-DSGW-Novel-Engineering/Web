@@ -7,8 +7,7 @@ const UserSettingView = () => {
   return (
     <S.MainContainer>
       <Sidebar />
-      <SideContentsBar />
-      <div>UserSettingView</div>
+      <SideContentsBar title="설정" url="usersetting" />
     </S.MainContainer>
   );
 };
