@@ -4,6 +4,7 @@ import Auth from "./pages/Auth";
 import UserInfo from "./pages/UserInfo";
 import UserRoom from "./pages/UserRoom";
 import UserSetting from "./pages/UserSetting";
+import App from "./pages/App";
 // import { useRecoilValue } from "recoil";
 // import { isSignIn } from "./store/atom";
 
@@ -12,6 +13,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<App />} />
         {/* {SignInCheck ? ( */}
         <>
           <Route path="/userinfo/:username" element={<UserInfo />} />

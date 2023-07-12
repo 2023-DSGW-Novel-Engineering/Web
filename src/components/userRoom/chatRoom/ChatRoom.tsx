@@ -1,25 +1,36 @@
 import React, { KeyboardEvent, useState } from "react";
-// import io from "socket.io-client";
 import * as S from "./ChatRoom.style";
 import { useParams } from "react-router-dom";
+let socket = new WebSocket("ws://192.168.191.47:4000/ws");
 
 const ChatRoom = () => {
   const [newChat, setNewChat] = useState<string>("");
-  // const socket = io("http://서버주소:포트번호");
-  // useEffect(() => {
-  //   socket.on("message", (data) => {
-  //     console.log("메시지 수신:", data);
-  //   });
-  //   return () => {
-  //     socket.disconnect();
-  //   };
-  // }, []);
-  // const sendMessage = (message: string) => {
-  // socket.emit("chatMessage", message);
-  // };
+  const [chat, setChat] = useState<string[]>([]);
+
+  socket.onopen = function () {
+    console.log("Connected to WebSocket server");
+  };
+
+  socket.onmessage = function (event) {
+    let message = event.data;
+    console.log(message);
+    let copy: string[] = [...chat];
+    copy.push(message);
+    setChat([...copy]);
+  };
+
+  socket.onclose = function (event) {
+    console.log("Disconnected from WebSocket server");
+  };
+
+  const Onclick = () => {
+    let message = newChat;
+    socket.send(message);
+    setNewChat("");
+  };
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      // sendMessage(newChat);
+      Onclick();
     }
   };
   const { roomidx } = useParams();
@@ -29,7 +40,11 @@ const ChatRoom = () => {
         <S.ChatHeader>
           <p>{roomidx}</p>
         </S.ChatHeader>
-        <S.ChatContents></S.ChatContents>
+        <S.ChatContents>
+          {chat.map((e) => (
+            <div>{e}</div>
+          ))}
+        </S.ChatContents>
         <S.Input
           type="text"
           placeholder="메세지를 입력해주세요."
