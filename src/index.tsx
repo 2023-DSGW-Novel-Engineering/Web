@@ -3,13 +3,16 @@ import ReactDOM from "react-dom/client";
 import "./styles/index.css";
 import Router from "./Router";
 import reportWebVitals from "./reportWebVitals";
+import { RecoilRoot } from "recoil";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Router />
+    <RecoilRoot>
+      <Router />
+    </RecoilRoot>
   </React.StrictMode>
 );
 
