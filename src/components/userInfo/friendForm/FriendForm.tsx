@@ -7,9 +7,20 @@ const FriendForm = () => {
   return (
     <S.MainContainer>
       <S.SubContainer>
-        <>
-          <p>{friendname}</p>
-        </>
+        <S.UserContentsWrap>
+          <S.UserInfoWrap>
+            <S.UserProfile></S.UserProfile>
+            <S.UserInfoName>{friendname}</S.UserInfoName>
+          </S.UserInfoWrap>
+          <S.UserTextWrap>
+            <S.UserInfoTitle>아이디</S.UserInfoTitle>
+            <S.UserInfoContext>dfd</S.UserInfoContext>
+          </S.UserTextWrap>
+          <S.UserTextWrap>
+            <S.UserInfoTitle>모국어</S.UserInfoTitle>
+            <S.UserInfoContext>dfdf</S.UserInfoContext>
+          </S.UserTextWrap>
+        </S.UserContentsWrap>
       </S.SubContainer>
     </S.MainContainer>
   );
