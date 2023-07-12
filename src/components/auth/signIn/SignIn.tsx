@@ -1,6 +1,6 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 import * as S from "../../../styles/auth/AuthInfo.style";
-import InputField from "../../common/auth/InputField";
+import InputField from "../../common/auth/input/InputField";
 import SubminBtn from "../../common/auth/SubminBtn";
 
 type IUserInfoGeneric<T extends string> = {

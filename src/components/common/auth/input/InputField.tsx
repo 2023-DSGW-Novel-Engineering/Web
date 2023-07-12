@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
-import { IUserType } from "../../auth/signIn/SignIn";
-import * as S from "../../../styles/auth/InputField.style";
+import { IUserType } from "../../../auth/signIn/SignIn";
+import * as S from "./InputField.style";
 
 type IInputGeneric<T extends string> = {
   [t in T]: string;
