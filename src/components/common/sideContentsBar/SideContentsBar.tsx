@@ -3,9 +3,12 @@ import * as S from "./SideContentsbar.style";
 
 const SideContentsBar = () => {
   return (
-    <S.MainSidebarContainer>
-      <div>SideContentsBar</div>
-    </S.MainSidebarContainer>
+    <div>
+      <S.Title>dd</S.Title>
+      <S.SidebarContainer>
+        <div>SideContentsBar</div>
+      </S.SidebarContainer>
+    </div>
   );
 };
 

@@ -8,7 +8,6 @@ export const MainSidebarContainer = styled.div`
   padding: 1.5rem;
   width: 2rem;
   height: 100%;
-  background-color: green;
 `;
 
 export const Icon = styled.div`
