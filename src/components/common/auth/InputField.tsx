@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { IUserType } from "../../auth/signIn/SignIn";
+import * as S from "../../../styles/auth/InputField.style";
 
 type IInputGeneric<T extends string> = {
   [t in T]: string;
@@ -10,10 +11,10 @@ type IInputType = IInputGeneric<"title" | "type" | "placeholder" | "value">;
 
 const InputField = (props: IInputType) => {
   return (
-    <div>
-      <p>{props.title}</p>
-      <input type={props.type} placeholder={props.placeholder} />
-    </div>
+    <S.ContentsContainer>
+      <S.Title>{props.title}</S.Title>
+      <S.Input type={props.type} placeholder={props.placeholder} />
+    </S.ContentsContainer>
   );
 };
 

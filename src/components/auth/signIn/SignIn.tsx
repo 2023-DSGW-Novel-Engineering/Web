@@ -1,4 +1,5 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
+import * as S from "../../../styles/auth/AuthInfo.style";
 import InputField from "../../common/auth/InputField";
 import SubminBtn from "../../common/auth/SubminBtn";
 
@@ -15,7 +16,7 @@ const SignIn = (props: ISiginInProps) => {
   const [userInfo, setUserInfo] = useState<IUserType>({ id: "", password: "" });
   return (
     <>
-      <p>로그인{"(SignIn)"}</p>
+      <S.Title>로그인{"(SignIn)"}</S.Title>
       <InputField
         title="아이디(ID)"
         type="text"
