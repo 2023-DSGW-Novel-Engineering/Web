@@ -1,7 +1,7 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 import * as S from "../../../styles/auth/AuthInfo.style";
 import InputField from "../../common/auth/input/InputField";
-import SubminBtn from "../../common/auth/SubminBtn";
+import SubminBtn from "../../common/auth/button/SubminBtn";
 
 type IUserInfoGeneric<T extends string> = {
   [t in T]: string;
@@ -46,7 +46,9 @@ const SignIn = (props: ISiginInProps) => {
         setState={setUserInfo}
       />
       <SubminBtn context="회원가입" />
-      <p onClick={() => props.setIsSignUp(false)}>계정이 있으신가요?</p>
+      <S.AccountCheck onClick={() => props.setIsSignUp(false)}>
+        계정이 있으신가요?
+      </S.AccountCheck>
     </>
   );
 };
