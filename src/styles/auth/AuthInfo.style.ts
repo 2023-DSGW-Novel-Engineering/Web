@@ -6,7 +6,7 @@ export const Title = styled.p`
   margin-bottom: 1rem;
 `;
 
-export const AccountCheck = styled.p`
+export const AccountCheck = styled.span`
   font-size: 0.75rem;
   color: #5a57ff;
   margin-top: 0.2rem;

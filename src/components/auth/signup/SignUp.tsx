@@ -79,9 +79,11 @@ const SignIn = (props: ISiginInProps) => {
       />
       <SelectLanguage setState={OnChangeLanguage} />
       <SubminBtn context="회원가입" onClcikFunc={ServerSignUp} />
-      <S.AccountCheck onClick={() => props.setIsSignUp(false)}>
-        계정이 있으신가요?
-      </S.AccountCheck>
+      <div>
+        <S.AccountCheck onClick={() => props.setIsSignUp(false)}>
+          계정이 있으신가요?
+        </S.AccountCheck>
+      </div>
     </>
   );
 };
