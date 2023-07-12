@@ -25,7 +25,7 @@ const SignIn = (props: ISiginInProps) => {
   };
 
   const ServerSignIn = () => {
-    navigate(`/userinfo/${userInfo.id}/`);
+    navigate(`/userinfo/${userInfo.id}`);
   };
   return (
     <>
