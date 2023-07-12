@@ -1,0 +1,11 @@
+{
+  "name": "novelweb",
+  "version": "1.0.0",
+  "description": "typeScript 기반 React를 사용하였습니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
